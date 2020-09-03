@@ -1,14 +1,33 @@
 <script>
 	import About from "./components/About.svelte";
+	import Text from "./components/Text.svelte";
+	import Person from "./components/Person.svelte";
+	import Skills from "./components/Skills.svelte";
+	import Input from "./components/Input.svelte";
+	import Photos from "./components/Photos.svelte";
+	import ButtonCound from "./components/ButtonCound.svelte";
+
 	export let name;
 	export let lastName;
 	let svelteLogo = "https://arepa.s3.amazonaws.com/svelte-logo.png";
 
+	const data= {
+		name: "Victor",
+		lastName: "Rojas",
+		age: 22,
+	}
 </script>
 
 <main>
 	<h1>Hello {name} {lastName}!</h1>
 	<About />
+	<Text anotherText="Hola!" />
+	<Text />
+	<Person name={data.name} lastName={data.lastName} age={data.age}/>
+	<Skills />
+	<Input />
+	<ButtonCound />
+	<Photos />
 	<img src={svelteLogo} alt="Svelte" />
 </main>
 
@@ -21,6 +40,11 @@
 	:global(:root) {
 		--theme-color: purple;
 		font-size: 22px;
+	}
+
+	:global(body.dark-mode){
+		background-color: #1d3040;
+		color: #bfc2c7;
 	}
 
 	main {
